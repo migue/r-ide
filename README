@@ -1,0 +1,10 @@
+R-IDE is an Eclipse IDE based for the R programming language. Some of the main features are:
+
+* Syntax highlighting
+* Code completion
+* Code formatting
+* R projects
+* Run R programs
+* . . .
+
+It is based on DLTK project right now but i am planning to migrate it to scala and the jdt weaving service. I am planning to add remote exectution support (maybe based on akka and a debugger)
