@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension-point id="rkeywords" name="%extension-point.name" schema="schema/rkeywords.exsd"/>
+   <extension
+         id="r.core.nature"
+         name="%extension.name"
+         point="org.eclipse.core.resources.natures">
+      <runtime>
+         <run
+               class="com.blogspot.miguelinlas3.r.eclipse.nature.RNature">
+         </run>
+      </runtime>
+   </extension>
+   <extension
+         point="org.eclipse.core.contenttype.contentTypes">
+            <content-type
+            base-type="org.eclipse.core.runtime.text"
+            describer="com.blogspot.miguelinlas3.r.eclipse.contenttypes.RContentDescriber"
+            file-extensions="R"
+            id="com.blogspot.miguelinlas3.r.eclipse.content-type"
+            name="%content-type.name"
+            priority="high">
+      </content-type>
+   </extension>
+   <extension
+         point="org.eclipse.dltk.core.language">
+      <language
+            class="com.blogspot.miguelinlas3.r.eclipse.language.RLanguageToolkit"
+            nature="r.core.nature"
+            priority="0">
+      </language>
+   </extension>
+  
+   <extension
+         point="org.eclipse.dltk.core.sourceElementParsers">
+      <parser
+            class="com.blogspot.miguelinlas3.r.eclipse.source.RSourceElementParser"
+            nature="r.core.nature"
+            priority="1">
+      </parser>
+   </extension>
+   <extension
+         point="org.eclipse.dltk.core.sourceParsers">
+      <parserContribution
+            natureId="r.core.nature">
+         <parser
+               class="com.blogspot.miguelinlas3.r.eclipse.internal.parser.RSourceParserFactory"
+               description="R Source parser"
+               id="com.blogspot.miguelinlas3.r.eclipse.source.parser"
+               name="sourceParser.name"
+               priority="0">
+         </parser>
+      </parserContribution>
+   </extension>
+   <extension
+         point="r.core.rkeywords">
+         <keywords
+            class="com.blogspot.miguelinlas3.r.eclipse.core.RKeywords">
+      </keywords>
+   </extension>
+   <extension
+         point="org.eclipse.dltk.core.mixin">
+      <mixin
+            class="com.blogspot.miguelinlas3.eclipse.r.core.internal.mixin.RMixinParser"
+            nature="r.core.nature"
+            priority="0">
+      </mixin>
+   </extension>
+
+</plugin>
