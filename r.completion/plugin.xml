@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.search.searchPages">
+      <page
+            canSearchEnclosingProjects="true"
+            class="com.blogspot.miguelinlas3.eclipse.r.completion.search.pages.RSearchPage"
+            enabled="true"
+            icon="icons/R.jpg"
+            id="com.blogspot.miguelinlas3.eclipse.r.completion.search.pages.RSearchPage"
+            label="%page.label"
+            showScopeSection="true"
+            sizeHint="460,160">
+      </page>
+   </extension>
+   <extension
+         point="org.eclipse.dltk.core.search">
+      <seachFactory
+            class="com.blogspot.miguelinlas3.eclipse.r.completion.search.RSearchFactory"
+            nature="r.core.nature"
+            priority="0">
+      </seachFactory>
+   </extension>
+   <extension
+         point="org.eclipse.ui.actionSets">
+      <actionSet
+            id="com.blogspot.miguelinlas3.r.completion.actionSet"
+            label="%actionSet.label">
+         <action
+               class="com.blogspot.miguelinlas3.eclipse.r.completion.navigation.ROpenFunctionAction"
+               id="r.completion.openFunction"
+               label="%action.label"
+               menubarPath="navigate/open.ext2"
+               toolbarPath="org.eclipse.search.searchActionSet/Search"
+               tooltip="%action.tooltip">
+         </action>
+      </actionSet>
+   </extension>
+   <extension
+         point="org.eclipse.dltk.core.selectionEngine">
+      <selectionEngine
+            class="com.blogspot.miguelinlas3.eclipse.r.completion.navigation.RSelectionEngine"
+            nature="r.core.nature"
+            priority="0">
+      </selectionEngine>
+   </extension>
+   <extension
+         point="org.eclipse.dltk.core.completionEngine">
+      <completionEngine
+            class="com.blogspot.miguelinlas3.eclipse.r.completion.codeassist.completion.RCompletionEngine"
+            nature="r.core.nature"
+            priority="0">
+      </completionEngine>
+   </extension>
+  
+
+
+</plugin>
