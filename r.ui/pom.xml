@@ -1,0 +1,76 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>com.blogspot.miguelinlas3.eclipse</groupId>
+		<artifactId>r</artifactId>
+		<version>1.0-SNAPSHOT</version>
+	</parent>
+
+	<groupId>com.blogspot.miguelinlas3.eclipse</groupId>
+	<artifactId>r.ui</artifactId>
+	<!--version.begin-->
+	<version>1.0-SNAPSHOT</version><!--version.end-->
+	<packaging>jar</packaging>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.eclipse.dltk.debug</groupId>
+			<artifactId>ui</artifactId>			
+			<version>[1.0.0.0,2.0)</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.dltk</groupId>
+			<artifactId>ui</artifactId>			
+			<version>[1.0.0.0,2.0)</version>
+			<scope>provided</scope>
+		</dependency>
+
+
+
+		<!-- Añadimos la dependencia de JUnit como bundle de eclipse -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<!--			<version>[4.5.0.0,5.0.0)</version>-->
+			<version>4.7</version>
+			<!--			<scope>test</scope>-->
+
+		</dependency>
+	</dependencies>
+
+	<build>
+		<finalName>${project.artifactId}_${project.version}</finalName>
+
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-eclipse-plugin</artifactId>
+				<version>2.5.1</version>
+				<configuration>
+					<pde>true</pde>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<repositories>
+		<repository>
+			<id>wso2-maven2-repository</id>
+			<url>http://dist.wso2.org/maven2</url>
+		</repository>
+		<repository>
+			<id>apache-Incubating-repo</id>
+			<name>Maven Incubating Repository</name>
+			<url>http://people.apache.org/repo/m2-incubating-repository</url>
+		</repository>
+		<repository>
+			<id>apache-maven2-repo</id>
+			<name>Apache Maven2 Repository</name>
+			<url>http://repo1.maven.org/maven2/</url>
+		</repository>
+	</repositories>
+</project>
