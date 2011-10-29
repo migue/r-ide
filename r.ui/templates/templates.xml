@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+
+	<!-- If/Else template -->
+	<template id="com.blogspot.miguelinlas3.r.eclipse.ui.templates.ifelse"
+		name="%ifelse.template.name" description="%ifelse.template.description " context="rUniversalTemplateContextType"
+		enabled="true" deleted="false" autoinsert="true">if (${condition}) {
+		${cursor}
+		} else {
+		}
+</template>
+	<!-- Switch template -->
+	<template id="com.blogspot.miguelinlas3.r.eclipse.ui.templates.switch"
+		name="%switch.template.name" description="%switch.template.description" context="rUniversalTemplateContextType"
+		enabled="true" deleted="false" autoinsert="true">switch (${key},${list})
+	</template>
+	<!--
+			Iteration templates
+		-->
+	<template id="com.blogspot.miguelinlas3.r.eclipse.ui.templates.repeat"
+		name="%repeat.template.name" description="%repeat.template.description" context="rUniversalTemplateContextType"
+		enabled="true" deleted="false" autoinsert="true">repeat {
+		${cursor}
+		}
+	</template>
+
+	<template id="com.blogspot.miguelinlas3.r.eclipse.ui.templates.while"
+		name="%while.template.name" description="%while.template.description" context="rUniversalTemplateContextType"
+		enabled="true" deleted="false" autoinsert="true">while (${condition}) {
+		${line_selection}${cursor}
+		}
+		</template>
+
+	<template id="com.blogspot.miguelinlas3.r.eclipse.ui.templates.for"
+		name="%for.template.name" description="%for.template.description" context="rUniversalTemplateContextType"
+		enabled="true" deleted="false" autoinsert="true">for(name in ${args}) {
+		${line_selection}${cursor}
+		}
+	</template>
+
+	<!-- Function -->
+	<template context="rUniversalTemplateContextType" description="%function.template.description"
+		id="com.blogspot.miguelinlas3.r.eclipse.ui.templates.function" name="%function.template.name">		
+		${funcName} <![CDATA[<-]]> function(${args}){
+				${cursor}
+		}
+		</template>
+</templates>
