@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+  
+  <extension
+         point="org.eclipse.debug.core.launchConfigurationTypes">
+         <launchConfigurationType
+               delegate="com.blogspot.miguelinlas3.eclipse.r.launching.RLaunchConfigurationDelegate"
+               id="com.blogspot.miguelinlas3.eclipse.r.launching.RLaunchConfigurationType"
+               modes="run"
+               name="%launchConfigurationType.name"
+               public="true"
+               sourceLocatorId="rSourceLocator"
+               sourcePathComputerId="rSourcePathComputer">
+		  </launchConfigurationType>
+         <!-- <launchConfigurationType
+               delegate="com.blogspot.miguelinlas3.eclipse.r.launching.remote.RRemoteLaunchConfigurationDelegate"
+               id="com.blogspot.miguelinlas3.eclipse.r.launching.remote.RLaunchConfigurationType"
+               modes="run"
+               name="%remoteRLaunchConfigurationType.name"
+               public="true"
+               sourceLocatorId="rSourceLocator">
+         </launchConfigurationType> -->
+   </extension>
+
+   <extension
+        point="org.eclipse.debug.core.sourceLocators">
+        <sourceLocator
+           class="org.eclipse.dltk.launching.sourcelookup.ScriptSourceLookupDirector"
+           id="rSourceLocator"
+           name="%sourceLocator.name" />
+   </extension>
+  
+   <extension 
+        point="org.eclipse.debug.core.sourcePathComputers">
+        <sourcePathComputer
+            class="org.eclipse.dltk.launching.sourcelookup.ScriptSourcePathComputer"
+            id="rSourcePathComputer"/>
+   </extension>
+       
+   <extension
+         point="org.eclipse.dltk.console.scriptInterpreter">
+      <scriptInterpreter
+            class="com.blogspot.miguelinlas3.eclipse.r.launching.console.RInterpreter"
+            natureID="org.eclipse.dltk.tcl.core.nature"/>
+   </extension>
+   <extension
+         point="org.eclipse.dltk.launching.interpreterInstallTypes">
+          <interpreterInstallType
+            class="com.blogspot.miguelinlas3.eclipse.r.launching.internal.RInterpreterInstallType"
+            id="com.blogspot.miguelinlas3.r.eclipse.r.interpreter.install.type">
+      </interpreterInstallType>   
+   </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            category="com.blogspot.miguelinlas3.r.eclipse.preferences"
+            class="com.blogspot.miguelinlas3.r.eclipse.launching.preferences.RPreferencePage"
+            id="r.launching.rInterpreters"
+            name="%page.name">
+      </page>
+      <page
+            category="com.blogspot.miguelinlas3.r.eclipse.preferences"
+            class="com.blogspot.miguelinlas3.r.eclipse.launching.preferences.RConsolePreferencesPage"
+            id="r.launching.console"
+            name="%page.name.0">
+      </page>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="com.blogspot.miguelinlas3.r.eclipse.launching.preferences.initializer.RConsoleInitializer">
+      </initializer>
+   </extension>
+   <extension
+         point="org.eclipse.ui.browserSupport">
+      <support
+            class="org.eclipse.ui.internal.browser.WorkbenchBrowserSupport"
+            default="true">
+      </support>
+   </extension>
+   <extension
+         point="org.eclipse.debug.ui.launchConfigurationTypeImages">
+      <launchConfigurationTypeImage
+            configTypeID="com.blogspot.miguelinlas3.eclipse.r.launching.RLaunchConfigurationType"
+            icon="icons/R.jpg"
+            id="r.launching.launchConfigurationTypeImage">
+      </launchConfigurationTypeImage>
+   </extension>
+
+</plugin>
